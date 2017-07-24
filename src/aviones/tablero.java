@@ -32,7 +32,7 @@ public class tablero extends JPanel implements ActionListener {
         
         addKeyListener(new TAdapter());
         setFocusable(true);
-        setBackground(Color.BLACK);
+        setBackground(Color.BLUE);
 
         craft = new Avion();
 
