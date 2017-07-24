@@ -1,10 +1,17 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package aviones;
+
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 public class mueveimagen extends JFrame {
 
     public mueveimagen() {
-        super("unajmasantos");
+        super("Santos serna Rivera");
         initUI();
     }
     
@@ -15,7 +22,7 @@ public class mueveimagen extends JFrame {
         setSize(400, 300);
         setResizable(false);
         
-        setTitle("unajmasantos");
+        setTitle("Santos serna Rivera");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
