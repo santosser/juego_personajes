@@ -24,4 +24,34 @@ public class Sprite {
         height = image.getHeight(null);
     }
 
+
+   protected void loadImage(String imageName) {
+  Image ii = new ImageIcon(getClass().getResource(imageName)).getImage();
+      //  ImageIcon ii = new ImageIcon(imageName);
+        image = ii;
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public boolean isVisible() {
+        return vis;
+    }
+
+    public void setVisible(Boolean visible) {
+        vis = visible;
+    }
+
+    public Rectangle getBounds() {
+        return new Rectangle(x, y, width, height);
+    }
 }
