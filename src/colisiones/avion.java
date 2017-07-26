@@ -3,55 +3,55 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aviones;
+package colisiones;
 
-import java.awt.Image;
 import java.awt.event.KeyEvent;
-import javax.swing.ImageIcon;
+import java.util.ArrayList;
 
-public class Avion {
+public class avion extends Sprite {
 
     private int dx;
     private int dy;
-    private int x;
-    private int y;
-    private Image image;
+    private ArrayList missiles;
 
-    public Avion() {
-        
+    public avion(int x, int y) {
+        super(x, y);
+
         initCraft();
     }
-    
-    private void initCraft() {
-      Image ii = new ImageIcon(getClass().getResource("avion.png")).getImage();
-    //    ImageIcon ii = new ImageIcon("craft.png");
-        image = ii;
-        x = 40;
-        y = 60;        
-    }
 
+    private void initCraft() {
+        
+        missiles = new ArrayList();
+        loadImage("avion.png");
+        getImageDimensions();
+    }
 
     public void move() {
+
         x += dx;
         y += dy;
+
+        if (x < 1) {
+            x = 1;
+        }
+
+        if (y < 1) {
+            y = 1;
+        }
     }
 
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public Image getImage() {
-        return image;
+    public ArrayList getMissiles() {
+        return missiles;
     }
 
     public void keyPressed(KeyEvent e) {
-      
+
         int key = e.getKeyCode();
-          System.out.println(""+key);
+
+        if (key == KeyEvent.VK_SPACE) {
+            fire();
+        }
 
         if (key == KeyEvent.VK_LEFT) {
             dx = -1;
@@ -70,8 +70,12 @@ public class Avion {
         }
     }
 
+    public void fire() {
+        missiles.add(new misil(x + width, y + height / 2));
+    }
+
     public void keyReleased(KeyEvent e) {
-        System.out.println("");
+
         int key = e.getKeyCode();
 
         if (key == KeyEvent.VK_LEFT) {
