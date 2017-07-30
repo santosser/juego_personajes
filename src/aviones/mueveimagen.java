@@ -19,7 +19,7 @@ public class mueveimagen extends JFrame {
         
         add(new tablero());
         
-        setSize(400, 300);
+        setSize(600,500);
         setResizable(false);
         
         setTitle("Santos serna Rivera");
